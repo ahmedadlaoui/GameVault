@@ -1,0 +1,140 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #0a0a0a;
+    color: white;
+    header{
+        width: 95%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-height: 76px;
+        ul{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 16px;
+            #logo{
+                height: 80px;
+            }
+            a{
+                color: white;
+                text-decoration: none;
+                font-weight: 600;
+            }
+            li{
+                list-style: none;
+            }
+        }
+        button{
+            background-color: transparent;
+            color: rgb(179, 179, 179);
+            border: none;
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 8px;
+            img{
+                border-radius: 50%;
+                background-color: gray;
+                padding: 3px;
+            }
+        }
+    }
+    .sub-header{
+        min-height: 86px;
+        background-color:rgb(35, 35, 35) ;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        ul{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 60px;   
+            a{
+                color: white;
+                text-decoration: none;
+                font-weight: 300;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                
+                &::after{
+                    content: "";
+                    background-color: white;
+                    transition: 0.2s all ease-out;
+                    width: 0%;
+                    height: 2px;
+                    position: absolute;
+                    bottom: 0;
+                    margin: auto;
+                }
+            &:hover::after{
+                    width: 100%;
+            }
+            &:hover{
+                background-color:rgb(35, 35, 25) ;
+            }
+            }
+            li{
+                list-style: none;
+            }
+        }
+        input{
+            background-color: transparent;
+            border: none;
+            padding: 16px;
+            color: white;
+            border: 1px solid white;
+            border-radius:200px;
+            width: 250px;
+            &::placeholder{
+                color: rgb(169, 169, 169);
+            }
+
+        }
+        #search{
+            background-color: transparent;
+            border: none;
+            position: absolute;
+            cursor: pointer;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        #Wishlist{
+            color: white;
+            text-decoration: none;
+            font-weight: 300;
+            position: relative;
+            display: flex;
+            justify-content: center;    
+            column-gap: 6px;
+            &::after{
+                content: "";
+                background-color: white;
+                transition: 0.2s all ease-out;
+                width: 0%;
+                height: 2px;
+                position: absolute;
+                bottom: 0;
+                margin: auto;
+            }
+        &:hover::after{
+                width: 100%;
+        }
+        &:hover{
+            background-color:rgb(35, 35, 25) ;
+        }
+    }
+}
+}
