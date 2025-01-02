@@ -12,22 +12,23 @@ body header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-height: 76px;
+  max-height: 65px;
 }
 body header ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  -moz-column-gap: 16px;
-       column-gap: 16px;
+  -moz-column-gap: 24px;
+       column-gap: 24px;
 }
 body header ul #logo {
-  height: 80px;
+  height: 70px;
 }
 body header ul a {
   color: white;
   text-decoration: none;
   font-weight: 600;
+  height: 100%;
 }
 body header ul li {
   list-style: none;
@@ -43,6 +44,7 @@ body header button {
   justify-content: center;
   -moz-column-gap: 8px;
        column-gap: 8px;
+  cursor: pointer;
 }
 body header button img {
   border-radius: 50%;
@@ -50,7 +52,7 @@ body header button img {
   padding: 3px;
 }
 body .sub-header {
-  min-height: 86px;
+  min-height: 75px;
   background-color: rgb(35, 35, 35);
   width: 100%;
   display: flex;
@@ -97,15 +99,23 @@ body .sub-header input {
   border: none;
   padding: 16px;
   color: white;
+  font-size: 16px;
   border: 1px solid white;
   border-radius: 200px;
-  width: 250px;
+  width: 280px;
+  height: 8px;
+  outline: none;
 }
 body .sub-header input::-moz-placeholder {
   color: rgb(169, 169, 169);
+  font-size: 16px;
 }
 body .sub-header input::placeholder {
   color: rgb(169, 169, 169);
+  font-size: 16px;
+}
+body .sub-header input:hover {
+  background-color: rgb(52, 52, 52);
 }
 body .sub-header #search {
   background-color: transparent;
@@ -141,4 +151,50 @@ body .sub-header #Wishlist:hover::after {
 }
 body .sub-header #Wishlist:hover {
   background-color: rgb(35, 35, 25);
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #030303;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+section button {
+  position: relative;
+  position: absolute;
+  width: 180px;
+  bottom: 18px;
+  padding: 12px;
+  background-color: transparent;
+  color: orange;
+  font-size: 20px;
+  font-weight: 800;
+  border: none;
+  border-bottom: 2px solid orange;
+  transition: 0.4s all ease-out;
+  cursor: pointer;
+}
+section button::before {
+  content: "";
+  width: 100%;
+  height: 0%;
+  left: 0;
+  background-color: orange;
+  transition: 0.5s all;
+  position: absolute;
+  bottom: 0;
+  border: none;
+}
+section button:hover {
+  color: white;
+  border-radius: 200px;
+}
+section button:hover::before {
+  border-radius: 200px;
+  height: 100%;
+  color: white;
 }/*# sourceMappingURL=style.css.map */
