@@ -6,6 +6,10 @@ body {
   line-height: 1.5;
   background-color: #0a0a0a;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 body header {
   width: 95%;
@@ -13,6 +17,7 @@ body header {
   justify-content: space-between;
   align-items: center;
   max-height: 65px;
+  background-color: #0a0a0a;
 }
 body header ul {
   display: flex;
@@ -162,6 +167,7 @@ section {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  width: 100%;
 }
 section button {
   position: relative;
@@ -175,16 +181,17 @@ section button {
   font-weight: 800;
   border: none;
   border-bottom: 2px solid orange;
-  transition: 0.4s all ease-out;
+  transition: 0.3s all ease-in-out;
   cursor: pointer;
+  z-index: 1;
 }
 section button::before {
   content: "";
-  width: 100%;
   height: 0%;
+  width: 100%;
   left: 0;
-  background-color: orange;
-  transition: 0.5s all;
+  background-color: rgba(255, 166, 0, 0.071);
+  transition: 0.3s all ease-in-out;
   position: absolute;
   bottom: 0;
   border: none;
@@ -197,4 +204,148 @@ section button:hover::before {
   border-radius: 200px;
   height: 100%;
   color: white;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+main h2 {
+  text-align: start;
+  width: 100%;
+  font-weight: 600;
+  border-bottom: 1px solid white;
+}
+main .image-container {
+  width: 200px;
+  height: 300px;
+  border-radius: 14px;
+  position: relative;
+  transition: 0.3s all;
+}
+main .image-container:hover {
+  transform: translateY(-12px);
+}
+main .image-container .overlay {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 0%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  transition: 0.3s all;
+  cursor: pointer;
+  text-align: center;
+}
+main .image-container:hover .overlay {
+  height: 100%;
+}
+main .image-container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  z-index: -1;
+  cursor: pointer;
+}
+main .slider-mmo {
+  height: 400px;
+  width: 90%;
+  display: grid;
+  align-items: center;
+  grid-auto-flow: column;
+  grid-template-rows: 1fr;
+  grid-auto-columns: minmax(200px, 1fr);
+  gap: 14px;
+  overflow-x: auto;
+  overflow-y: visible;
+}
+main .slider-mmo::-webkit-scrollbar {
+  display: none;
+}
+
+.space {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+.space #background {
+  width: 90%;
+  border-radius: 10px;
+}
+.space::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(to top, #0a0a0a 14%, rgba(0, 0, 0, 0.3) 50%, transparent);
+  border-radius: 10px;
+  z-index: 200;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.space .small-slider {
+  position: absolute;
+  bottom: 0;
+  z-index: 100000;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  display: flex;
+}
+.space .aside {
+  border-radius: 8px;
+  height: 300px;
+}
+.space .ss-container {
+  width: 240px;
+  height: 300px;
+  border-radius: 14px;
+  position: relative;
+  transition: 0.3s all;
+}
+.space .ss-container:hover {
+  transform: translateY(-12px);
+}
+.space .ss-container .overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 0%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  transition: 0.3s all;
+  cursor: pointer;
+  border-radius: 14px;
+}
+.space .ss-container:hover .overlay {
+  height: 100%;
+}
+.space .ss-container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  z-index: -1;
+  cursor: pointer;
+}
+
+.scroll {
+  opacity: 0;
+  scale: 0.8;
+  transition: 0.8s all ease-out;
+  filter: blur(6px);
+  transform: translateY(20%);
+}
+
+.show {
+  opacity: 1;
+  scale: 1;
+  filter: blur(0);
+  transform: translateY(0%);
 }/*# sourceMappingURL=style.css.map */
