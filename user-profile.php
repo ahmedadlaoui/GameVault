@@ -42,9 +42,9 @@
         </a>
       </li>
       <li>
-        <a href="#">
-          <i class="fas fa-clock"></i>
-          <p>recent games</p>
+        <a href="#" class="active">
+          <i class="fas fa-pen"></i>
+          <p>edit info</p>
         </a>
       </li>
 
@@ -55,10 +55,6 @@
           <p>log-out</p>
         </a>
       </li>
-
-
-
-
 
     </ul>
   </div>
@@ -108,9 +104,29 @@
     </div>
 
     <div class="title-info">
-      <p>library</p>
+      <p>user-info</p>
       <i class="fas fa-table"></i>
     </div>
+
+    <form action="#" method="POST">
+      <div>
+        <label for="user-name"><span>name</span></label>
+        <input type="text" name="name" id="user-name" value="mohamed">
+      </div>
+      <div>
+       <label for="user-email"><span>email</span></label> 
+        <input type="email" name="email" id="user-email" value="email@email.com">
+      </div>
+
+      <div class="password" >
+        <input type="password" name="current-password" id="current-password" placeholder="current password" required>
+        <input type="password" name="new-password" id="new-password" placeholder="new password" required>
+        <input type="password" name="confirme-password" id="confirme-password" placeholder="confirm password" required>
+      </div>
+
+      <button type="submit">save changes</button>
+    </form>
+
 
 
   </div>

@@ -52,7 +52,7 @@ body{
   margin: 10px 0;
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 47px;
   border-radius:8px;
   text-decoration: none;
   padding: 10px;
@@ -116,3 +116,63 @@ body{
   font-size: 30px;
 }
 
+/*  */
+
+.content form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap:20px;
+  align-items: center;
+  height: 60vh;
+  >div{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* width: 60%; */
+    min-width: min(600px, 90%);
+    background: rgba(255, 255, 255, 0.159);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    >label span{
+      text-transform: capitalize;
+    }
+    >input{
+      background-color: rgba(1, 128, 255, 0.149);
+      backdrop-filter: blur(10px);
+      padding: 10px 20px;
+      border-radius: 6px;
+      margin: 10px 0px;
+      outline: none;
+      border:none;
+      border: solid 1px #FFF;
+      width:60%;
+    }
+    >input::placeholder{
+      color:rgba(255,255,255,0.6);
+    }
+    
+  }
+  >.password{
+    display: flex;
+    flex-direction: column;
+
+  }
+  >button{
+    background-color: #0181ff;
+    padding:12px 10px;
+    border:solid 1px #FFF;
+    border-radius: 6px;
+    box-shadow: 2px 2px rgba(1, 128, 255, 0.149);
+
+  }
+  >button:hover{
+    border:solid 1px #0181ff;
+    color:#0181ff;
+    background-color: #FFF;
+  }
+
+
+}
