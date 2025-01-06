@@ -75,6 +75,33 @@ class clsAdmin
     }
   }
 
+  public function updateGameInfo($GameName, $NewGameName, $NewPoster, $NewGameCategory, $NewReleseDate): bool
+  {
+    if (!$this->_isGameAlreadyExist($GameName)) {
+      echo "game doesn't exist!";
+      return false;
+    }
+    try {
+      $stmt = $this->_Connection->prepare("UPDATE games SET
+             Game_Name=:NewGameName , Poster=:NewPoster ,
+             Game_Category=:NewGameCategory , Relese_Date=:NewReleseDate
+               WHERE Game_Name=:GameName;");
+
+      $stmt->execute([
+        ':GameName' => $GameName,
+        ':NewGameName' => $NewGameName,
+        ':NewPoster' => $NewPoster,
+        ':NewGameCategory' => $NewGameCategory,
+        ':NewReleseDate' => $NewReleseDate
+
+      ]);
+
+      return true;
+    } catch (PDOException $e) {
+      error_log("oops! couldn't update the game: " . $e->getMessage());
+      return false;
+    }
+  }
 
 
 
