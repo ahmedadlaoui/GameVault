@@ -34,4 +34,30 @@ class clsAdmin
     $this->_Connection = $conn->Connection;
   }
 
+  public function addNewGame($GameName, $PosterURL, $Category, $ReleaseDate): bool
+  {
+    if ($this->_isGameAlreadyExist($GameName)) {
+      echo "game already exists!";
+      return false;
+    }
+
+    try {
+      $stmt = $this->_Connection->prepare("INSERT INTO games (Game_Name, Poster, Game_Category, Relese_Date) 
+                                             VALUES (:GameName, :PosterURL, :Category, :ReleaseDate)");
+
+      $stmt->execute([
+        ':GameName' => $GameName,
+        ':PosterURL' => $PosterURL,
+        ':Category' => $Category,
+        ':ReleaseDate' => $ReleaseDate
+      ]);
+
+      return true;
+    } catch (PDOException $e) {
+      error_log("oops! something went wrong with adding new game: " . $e->getMessage());
+      return false;
+    }
+  }
+
+
 }
