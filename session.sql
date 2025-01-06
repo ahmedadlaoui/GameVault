@@ -116,3 +116,9 @@ create table Histories_Join(
     foreign key (Game_ID) references Games (Game_ID),
     foreign key (Historic_ID) references Histories (Historic_ID)
 );
+
+-- @block
+DESCRIBE users;
+ 
+ -- @block
+ SELECT * FROM users;
