@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,33 +14,53 @@
 </head>
 
 <body>
-        <div class="fakeheader"></div>
+    <div class="fakeheader"></div>
 
-        
-            <header>
-                <ul>
-                    <a href=""><img src="images/logogm-removebg-preview.png" alt="logo" id="logo"></a>
-                    <a href=""><li>PREMIUM</li></a>
-                    <a href="" style="display: flex;"><li>DOWLOAD</li> <img src="images/download_24dp_F3F3F3_FILL0_wght500_GRAD0_opsz24.svg" alt=""></a>
-                    <a href="" style="display: flex;"><li>Dashboard</li><img src="images/headset_mic_24dp_F3F3F3_FILL0_wght500_GRAD0_opsz24.svg" alt=""></a>
-                </ul>
-               <a style="text-decoration: none;" href="sign-in.php"><button><img src="images/person_24dp_F3F3F3_FILL1_wght400_GRAD0_opsz24.svg" alt="">Log In</button></a> 
-            </header>
-        
-            <div class="sub-header" id="header">
-                <ul>
-                    <a href=""><li>Home</li></a>
-                    <a href=""><li>Collection</li></a>
-                    <a href=""><li>Feedbacks</li></a>
-                </ul>
-                <form style="position: relative;">
-                    <button id="search"><img src="images/search_24dp_F3F3F3_FILL0_wght500_GRAD0_opsz24.svg"></button>
-                    <input type="text" placeholder="Search for games">
-                </form>
-                <a href="" id="Wishlist">View Profile</a>
-            </div>
-        
-        
+
+    <header>
+        <ul>
+            <a href=""><img src="images/logogm-removebg-preview.png" alt="logo" id="logo"></a>
+            <a href="">
+                <li>PREMIUM</li>
+            </a>
+            <a href="" style="display: flex;">
+                <li>DOWLOAD</li> <img src="images/download_24dp_F3F3F3_FILL0_wght500_GRAD0_opsz24.svg" alt="">
+            </a>
+            <a href="" style="display: flex;">
+                <li>Dashboard</li><img src="images/headset_mic_24dp_F3F3F3_FILL0_wght500_GRAD0_opsz24.svg" alt="">
+            </a>
+        </ul>
+        <a style="text-decoration: none;" href="sign-in.php"><button><img src="images/person_24dp_F3F3F3_FILL1_wght400_GRAD0_opsz24.svg" alt="">Log In</button></a>
+    </header>
+
+
+    <?php
+    if (!empty($_SESSION['Nickname'])) {
+        echo '<div class="sub-header" id="header">
+        <ul>
+            <a href="">
+                <li>Home</li>
+            </a>
+            <a href="">
+                <li>Collection</li>
+            </a>
+            <a href="">
+                <li>Feedbacks</li>
+            </a>
+        </ul>
+        <form style="position: relative;">
+            <button id="search"><img src="images/search_24dp_F3F3F3_FILL0_wght500_GRAD0_opsz24.svg"></button>
+            <input type="text" placeholder="Search for games">
+        </form>
+        <a href="user_dashboard.php" id="Wishlist">View Profile</a>
+    </div>';
+    }
+
+
+    ?>
+
+
+
 
     <section>
         <img src="images/pxfuel (2).jpg" alt="">
@@ -59,25 +83,25 @@
                         <h3>League of legends</h3>
                     </div>
                 </div>
-    
+
                 <div class="image-container scroll">
                     <img src="images/leagueg.jpg" alt="">
                     <div class="overlay">
                     </div>
                 </div>
-    
+
                 <div class="image-container scroll">
                     <img src="images/leagueg.jpg" alt="">
                     <div class="overlay">
                     </div>
                 </div>
-    
+
                 <div class="image-container scroll">
                     <img src="images/leagueg.jpg" alt="">
                     <div class="overlay">
                     </div>
                 </div>
-    
+
                 <div class="image-container scroll">
                     <img src="images/leagueg.jpg" alt="">
                     <div class="overlay">

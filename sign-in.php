@@ -38,11 +38,19 @@ class sign_in{
 
     }
 
+    public static function signout(){
+        session_destroy();
+        session_unset();
+    }
+
 }
 
 if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit-login'])){
     $signininstance = new sign_in(null,null);
     $signininstance->signin();
+}
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['log-out'])){
+    sign_in::signout();
 }
 
 

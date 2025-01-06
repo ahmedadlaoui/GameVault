@@ -1,0 +1,347 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    color:white;
+    font-family: sans-serif;
+  }
+  body{
+    background-color: #0a0a0a;
+  }
+
+  .menu ul li a{
+    display: block;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 47px;
+    border-radius:8px;
+    text-decoration: none;
+    padding: 10px;
+    transition: .5s;
+  }
+
+  .menu ul li a i{
+    font-size: 30px;
+  }
+  .log-out {
+    background-color: transparent;
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+  }
+  .log-out a:hover{
+    background-color: rgb(52, 52, 52);
+  }
+  
+  
+  .content{
+    width: 100%;
+  }
+  .title-info{
+    display: flex;
+    justify-content: space-between;
+    padding :10px;
+    margin: 10px 0px;
+    color: white;
+    font-size: 22px;
+  }
+  
+  .data-info{
+    display: flex;
+    justify-content: space-around;
+    padding: 12px;
+    flex-wrap: wrap;
+    gap: 10px;
+
+  
+  }
+  .data-info .box{
+    background-color:rgba(35, 35, 35, 0.225);
+    height: 150px;
+    width: 150px;
+    border:1px solid white;
+    flex-basis: 150px;
+    flex-grow: 1;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    transition: .7s;
+  }
+  .data-info .box i{
+    font-size: 40px;
+  
+  }
+  .data-info .box .data{
+    text-align: center;
+  
+  }
+  .data-info .box .data span{
+    font-size: 30px;
+  }
+  
+  /*  */
+  
+  .content form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:20px;
+    align-items: center;
+    height: 60vh;
+    >div{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      /* width: 60%; */
+      min-width: min(600px, 90%);
+      backdrop-filter: blur(30px);
+      border-radius: 8px;
+      >label span{
+        text-transform: capitalize;
+      }
+      >input{
+        background-color: rgba(0, 0, 0, 0.051);
+        backdrop-filter: blur(10px);
+        padding: 10px 20px;
+        border-radius: 6px;
+        margin: 10px 0px;
+        outline: none;
+        border:none;
+        border: solid 1px #FFF;
+        width:60%;
+      }
+      >input::placeholder{
+        color:rgba(255,255,255,0.6);
+      }
+      
+    }
+    >.password{
+      display: flex;
+      flex-direction: column;
+  
+    }
+    >button {
+        position: relative;
+        width: 180px;
+        bottom: 18px;
+        padding: 12px;
+        background-color: transparent;
+        color: orange;
+        font-size: 18px;
+        font-weight: 800;
+        border: none;
+        border-bottom: 2px solid orange;
+        transition: 0.3s all ease-in-out;
+        cursor: pointer;
+        z-index: 1;
+      }
+      > button::before {
+        content: "";
+        height: 0%;
+        width: 100%;
+        left: 0;
+        background-color: rgba(255, 166, 0, 0.071);
+        transition: 0.3s all ease-in-out;
+        position: absolute;
+        bottom: 0;
+        border: none;
+      }
+      >button:hover {
+        color: white;
+        border-radius: 200px;
+      }
+      >button:hover::before {
+        border-radius: 200px;
+        height: 100%;
+        color: white;
+      }
+  
+  
+  }
+  #c{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+  }
+  body header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 65px;
+    background-color: rgba(10, 10, 10, 0.7);
+    position: fixed;
+    top: 0;
+    z-index: 1000000;
+  }
+  body header ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -moz-column-gap: 24px;
+         column-gap: 24px;
+  }
+  body header ul #logo {
+    height: 70px;
+  }
+  body header ul a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    height: 100%;
+  }
+  body header ul li {
+    list-style: none;
+  }
+  body header button {
+    background-color: transparent;
+    color: rgb(179, 179, 179);
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -moz-column-gap: 8px;
+         column-gap: 8px;
+    margin-right: 12px;
+    cursor: pointer;
+  }
+  body header button img {
+    border-radius: 50%;
+    background-color: gray;
+    padding: 3px;
+  }
+  body .sub-header {
+    min-height: 75px;
+    background-color: rgb(35, 35, 35);
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 65px;
+    z-index: 1000000;
+    transform: translateY(0);
+    transition: all 0.3s ease-in-out;
+  }
+  body .sub-header ul {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -moz-column-gap: 60px;
+         column-gap: 60px;
+  }
+  body .sub-header ul a {
+    color: white;
+    text-decoration: none;
+    font-weight: 300;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  body .sub-header ul a::after {
+    content: "";
+    background-color: white;
+    transition: 0.2s all ease-out;
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    margin: auto;
+  }
+  body .sub-header ul a:hover::after {
+    width: 100%;
+  }
+  body .sub-header ul a:hover {
+    background-color: rgb(35, 35, 25);
+  }
+  body .sub-header ul li {
+    list-style: none;
+  }
+  body .sub-header input {
+    background-color: transparent;
+    border: none;
+    padding: 16px;
+    color: white;
+    font-size: 16px;
+    border: 1px solid white;
+    border-radius: 200px;
+    width: 280px;
+    height: 8px;
+    outline: none;
+  }
+  body .sub-header input::-moz-placeholder {
+    color: rgb(169, 169, 169);
+    font-size: 16px;
+  }
+  body .sub-header input::placeholder {
+    color: rgb(169, 169, 169);
+    font-size: 16px;
+  }
+  body .sub-header input:hover {
+    background-color: rgb(52, 52, 52);
+  }
+  body .sub-header #search {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    cursor: pointer;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  body .sub-header #Wishlist {
+    color: white;
+    text-decoration: none;
+    font-weight: 300;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    -moz-column-gap: 6px;
+         column-gap: 6px;
+  }
+  body .sub-header #Wishlist::after {
+    content: "";
+    background-color: white;
+    transition: 0.2s all ease-out;
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    margin: auto;
+  }
+  body .sub-header #Wishlist:hover::after {
+    width: 100%;
+  }
+  body .sub-header #Wishlist:hover {
+    background-color: rgb(35, 35, 25);
+  }
+  
+.fakeheader {
+  height: 140px;
+  width: 100%;
+}
+
+#header.hidden {
+  transform: translateY(-100%);
+}
+
+
+.changeifos{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    >img{
+        border-radius: 50%;
+        width: 350px;
+        height: 350px;
+        border: 1px solid white;
+    }
+}
