@@ -1,9 +1,13 @@
 <?php
-
-// include 'sign-in.php';
 session_start();
 
+class User{
+    private $nickname;
+}
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -98,8 +102,7 @@ session_start();
 
 
         <div class="title-info">
-            <p>statist</p>
-            <i class="fas fa-chart-pie"></i>
+            <H2>statist <i class="fas fa-chart-pie"></i></H2>
         </div>
 
         <div class="data-info">
@@ -140,15 +143,47 @@ session_start();
 
         </div>
 
-        <div class="title-info">
-            <p>user-info</p>
-            <i class="fas fa-table"></i>
-        </div>
+    
 
 
 
 
     </div>
+
+    <main class="title-info">
+            <h2>All available games :</h2>
+
+            <div style="position: relative;width: 100%;display: flex;justify-content: flex-end;align-items: center;">
+            <div class="slider-mmo scroll">
+
+                <div class="image-container scroll">
+                    <img src="images/leagueg.jpg" alt="">
+                    <div class="overlay">
+                        <h3>League of legends</h3>
+                        <form action="" method="post">
+                        <button class="deletegame">Delete<img src="images/delete_24dp_FF7070_FILL1_wght400_GRAD0_opsz24.svg" alt=""></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="image-container scroll">
+                    <img src="images/leagueg.jpg" alt="">
+                    <div class="overlay">
+                    </div>
+                </div>
+                <div class="image-container scroll">
+                    <img src="images/leagueg.jpg" alt="">
+                    <div class="overlay">
+                    </div>
+                </div>
+                <div class="image-container scroll">
+                    <img src="images/leagueg.jpg" alt="">
+                    <div class="overlay">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</main>
 
     <script src="script.js"></script>
 

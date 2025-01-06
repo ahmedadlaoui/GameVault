@@ -270,7 +270,7 @@ main .slider-mmo, main .slider-fps, main .slider-btl {
   grid-auto-flow: column;
   grid-template-rows: 1fr;
   position: relative;
-  grid-auto-columns: minmax(200px, 1fr);
+  grid-auto-columns: min-content;
   gap: 14px;
   overflow-x: auto;
   overflow-y: visible;

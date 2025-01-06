@@ -40,11 +40,11 @@
   }
   .title-info{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     padding :10px;
     margin: 10px 0px;
     color: white;
-    font-size: 22px;
   }
   
   .data-info{
@@ -89,8 +89,9 @@
     flex-direction: column;
     justify-content: center;
     gap:20px;
-    align-items: center;
+    align-items: end;
     height: 60vh;
+    position: relative;
     >div{
       display: flex;
       align-items: center;
@@ -124,7 +125,7 @@
   
     }
     >button {
-        position: relative;
+        position: absolute;
         width: 180px;
         bottom: 18px;
         padding: 12px;
@@ -132,11 +133,11 @@
         color: orange;
         font-size: 18px;
         font-weight: 800;
+        right: 0;
         border: none;
         border-bottom: 2px solid orange;
         transition: 0.3s all ease-in-out;
         cursor: pointer;
-        z-index: 1;
       }
       > button::before {
         content: "";
@@ -334,14 +335,110 @@
 
 
 .changeifos{
-    width: 100%;
+    margin: auto;
+    width: 80%;
     display: flex;
     justify-content: center;
     align-items:center;
     >img{
         border-radius: 50%;
-        width: 350px;
-        height: 350px;
+        width: 320px;
+        height: 320px;
         border: 1px solid white;
     }
+}
+
+.slider-mmo{
+    height: 400px;
+    width: 96%;
+    display: grid;
+    align-items: center;
+    justify-content: start;
+    grid-auto-flow: column;
+    grid-template-rows: 1fr;
+    position: relative;
+    grid-auto-columns: min-content; 
+    gap: 14px;
+    overflow-x: auto;
+    overflow-y: visible;
+}
+.slider-mmo::-webkit-scrollbar{
+    display: none;
+}
+main .image-container {
+    width: 200px;
+    height: 300px;
+    border-radius: 14px;
+    position: relative;
+    transition: 0.3s all;
+  }
+  main .image-container:hover {
+    transform: translateY(-12px);
+  }
+  main .image-container .overlay {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 0%;
+    position: relative;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    transition: 0.3s all;
+    cursor: pointer;
+    text-align: center;
+  }
+  main .image-container:hover .overlay {
+    height: 100%;
+  }
+  main .image-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    z-index: -1;
+    cursor: pointer;
+  }
+  h3{
+    margin-top: 12px;
+  }
+
+  .scroll{
+    opacity: 0;
+    scale: 0.8;
+    transition: 0.8s all ease-out;
+    filter: blur(6px);
+    transform: translateY(20%);
+}
+.show{
+    opacity: 1;
+    scale: 1;
+    filter: blur(0);
+    transform: translateY(0%);
+}
+.deletegame{
+    border: none;
+    background-color: transparent;
+    color: rgb(251, 81, 81);
+    font-size: 12px;
+    font-weight: 700;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    transform: 0.4s all;
+    display: none;
+
+}
+.image-container:hover .deletegame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scale: 1.1;
+}
+.deletegame:hover{
+    scale: 1.4;
+}
+.deletegame img{
+    width: 20px;
+    height: 20px;
+
 }
