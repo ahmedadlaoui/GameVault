@@ -59,5 +59,23 @@ class clsAdmin
     }
   }
 
+  public function deleteGame($GameName): bool
+  {
+    if (!$this->_isGameAlreadyExist($GameName)) {
+      echo "game doesn't exist!";
+      return false;
+    }
+    try {
+      $stmt = $this->_Connection->prepare("DELETE FROM games WHERE Game_Name=:GameName;");
+      $stmt->execute([':GameName' => $GameName]);
+      return true;
+    } catch (PDOException $e) {
+      error_log("oops! couldn't delete the game: " . $e->getMessage());
+      return false;
+    }
+  }
+
+
+
 
 }
