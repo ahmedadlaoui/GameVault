@@ -12,12 +12,15 @@ body {
   flex-direction: column;
 }
 body header {
-  width: 95%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   max-height: 65px;
-  background-color: #0a0a0a;
+  background-color: rgba(10, 10, 10, 0.7);
+  position: fixed;
+  top: 0;
+  z-index: 1000000;
 }
 body header ul {
   display: flex;
@@ -49,6 +52,7 @@ body header button {
   justify-content: center;
   -moz-column-gap: 8px;
        column-gap: 8px;
+  margin-right: 12px;
   cursor: pointer;
 }
 body header button img {
@@ -63,6 +67,11 @@ body .sub-header {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  position: fixed;
+  top: 65px;
+  z-index: 1000000;
+  transform: translateY(0);
+  transition: all 0.3s ease-in-out;
 }
 body .sub-header ul {
   height: 100%;
@@ -169,6 +178,9 @@ section {
           user-select: none;
   width: 100%;
 }
+section img {
+  width: 100%;
+}
 section button {
   position: relative;
   position: absolute;
@@ -209,7 +221,7 @@ section button:hover::before {
 main {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   flex-direction: column;
 }
 main h2 {
@@ -250,19 +262,20 @@ main .image-container img {
   z-index: -1;
   cursor: pointer;
 }
-main .slider-mmo {
+main .slider-mmo, main .slider-fps, main .slider-btl {
   height: 400px;
-  width: 90%;
+  width: 96%;
   display: grid;
   align-items: center;
   grid-auto-flow: column;
   grid-template-rows: 1fr;
+  position: relative;
   grid-auto-columns: minmax(200px, 1fr);
   gap: 14px;
   overflow-x: auto;
   overflow-y: visible;
 }
-main .slider-mmo::-webkit-scrollbar {
+main .slider-mmo::-webkit-scrollbar, main .slider-fps::-webkit-scrollbar, main .slider-btl::-webkit-scrollbar {
   display: none;
 }
 
@@ -348,4 +361,108 @@ main .slider-mmo::-webkit-scrollbar {
   scale: 1;
   filter: blur(0);
   transform: translateY(0%);
+}
+
+.fakeheader {
+  height: 140px;
+  width: 100%;
+}
+
+#header.hidden {
+  transform: translateY(-100%);
+}
+
+#forward {
+  position: absolute;
+  z-index: 4325235;
+  right: 16px;
+  background-color: rgba(10, 10, 10, 0.7);
+  border: 1px solid orange;
+  border-radius: 50%;
+  padding: 12px;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#backward {
+  position: absolute;
+  z-index: 4325235;
+  left: 16px;
+  background-color: rgba(10, 10, 10, 0.7);
+  border: 1px solid orange;
+  border-radius: 50%;
+  padding: 12px;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  transform: rotate(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.hero {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.hero .principale {
+  width: 85%;
+  height: 390px;
+}
+.hero::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(to top, #0a0a0a 20%, rgba(0, 0, 0, 0.3) 50%, transparent);
+  border-radius: 10px;
+  z-index: 200;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.hero .z3antot {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  z-index: 1324;
+  -moz-column-gap: 24px;
+       column-gap: 24px;
+}
+.hero .z3antot .small {
+  height: 142px;
+  width: 260px;
+  border-radius: 4px;
+  transition: all 0.5s;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.2666666667));
+  cursor: pointer;
+}
+.hero .z3antot .small:hover {
+  scale: 1.1;
+}
+
+.forum {
+  margin-top: 120px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.forum img {
+  width: 35px;
+  height: 35px;
+}
+.forum .message {
+  width: 80%;
 }/*# sourceMappingURL=style.css.map */
