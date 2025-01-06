@@ -1,8 +1,48 @@
 <?php
+require_once 'dbconn.php';
 session_start();
 
-class User{
+class User
+{
     private $nickname;
+    private $Email;
+    private $profilpic;
+
+    public function __construct($nickname, $Email, $profilpic)
+    {
+        $this->nickname =  $nickname;
+        $this->Email = $Email;
+        $this->profilpic = $profilpic;
+    }
+
+    public static function fetchuser_infos()
+    {
+
+        $dbconnection = dbconnection::Getinstanse();
+        $connection = $dbconnection->getconnection();
+
+        $stmt = $connection->prepare("SELECT * FROM users WHERE User_ID = :user_id ");
+        $stmt->bindParam(':user_id', $_SESSION['user_ID']);
+        $stmt->execute();
+        return  $stmt->Fetch(PDO::FETCH_ASSOC);
+    }
+
+    public static function edit_uuserinfos()
+    {
+        $dbconnection = dbconnection::Getinstanse();
+        $connection = $dbconnection->getconnection();
+
+        $stmt = $connection->prepare("UPDATE users SET Nick_Name = :currentuser,Email = :currentemail, Password = :currentpassword ");
+        $stmt->bindParam(':currentuser', $_POST['name']);
+        $stmt->bindParam(':currentemail', $_POST['email']);
+        $stmt->bindParam(':currentpassword', password_hash($_POST['new-password'],PASSWORD_DEFAULT));
+        $stmt->execute();
+    }
+}
+$user_infos = User::fetchuser_infos();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['savechanges'])) {
+    user::edit_uuserinfos();
 }
 
 ?>
@@ -75,28 +115,28 @@ class User{
             <form action="#" method="POST">
                 <div>
                     <label for="user-name"><span>name</span></label>
-                    <input type="text" name="name" id="user-name" value="mohamed">
+                    <input type="text" name="name" id="user-name" value="<?php echo  $user_infos['Nick_Name'] ?>">
                 </div>
                 <div>
                     <label for="user-email"><span>email</span></label>
-                    <input type="email" name="email" id="user-email" value="email@email.com">
+                    <input type="email" name="email" id="user-email" value="<?php echo  $user_infos['Email'] ?>">
                 </div>
 
 
                 <div>
-                    <label for="new-password"><span>New password</span></label>
-                    <input type="password" name="new-password" id="new-password" placeholder="new password" required>
+                    <label for="new-password"><span>Current password</span></label>
+                    <input type="password" id="new-password" value="<?php echo  base64_decode($user_infos['Password']) ?>" required>
                 </div>
 
 
 
                 <div>
-                    <label for="confirme-password"><span>Confirme password</span></label>
-                    <input type="password" name="confirme-password" id="confirme-password" placeholder="confirm password" required>
+                    <label for="confirme-password"><span>New password</span></label>
+                    <input type="password" name="new-password" id="confirme-password" placeholder="confirm password" required>
                 </div>
 
 
-                <button type="submit">save changes</button>
+                <button type="submit" name="savechanges">save changes</button>
             </form>
         </div>
 
@@ -143,7 +183,7 @@ class User{
 
         </div>
 
-    
+
 
 
 
@@ -151,9 +191,9 @@ class User{
     </div>
 
     <main class="title-info">
-            <h2>All available games :</h2>
+        <h2>All available games :</h2>
 
-            <div style="position: relative;width: 100%;display: flex;justify-content: flex-end;align-items: center;">
+        <div style="position: relative;width: 100%;display: flex;justify-content: flex-end;align-items: center;">
             <div class="slider-mmo scroll">
 
                 <div class="image-container scroll">
@@ -161,7 +201,7 @@ class User{
                     <div class="overlay">
                         <h3>League of legends</h3>
                         <form action="" method="post">
-                        <button class="deletegame">Delete<img src="images/delete_24dp_FF7070_FILL1_wght400_GRAD0_opsz24.svg" alt=""></button>
+                            <button class="deletegame">Delete<img src="images/delete_24dp_FF7070_FILL1_wght400_GRAD0_opsz24.svg" alt=""></button>
                         </form>
                     </div>
                 </div>
@@ -183,7 +223,7 @@ class User{
             </div>
 
         </div>
-</main>
+    </main>
 
     <script src="script.js"></script>
 

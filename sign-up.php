@@ -21,7 +21,7 @@ class signup
   {
     $dbconnection = dbconnection::Getinstanse();
     $connection = $dbconnection->getconnection();
-    $hashedpassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $hashedpassword = base64_encode($_POST['password']);
 
     $checkStmt = $connection->prepare("SELECT COUNT(*) FROM users WHERE Email = :email");
     $checkStmt->bindParam(':email',  $_POST['email']);

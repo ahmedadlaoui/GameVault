@@ -23,7 +23,7 @@ class sign_in{
         $users_array = $stmt->FetchALL(PDO::FETCH_ASSOC);
 
         foreach($users_array as $user){
-            if($user['Email'] === $_POST['email'] &&  password_verify($_POST['password'],$user['Password'] )){
+            if($user['Email'] === $_POST['email'] &&  base64_encode($_POST['password']) === $user['Password'] ){
 
                 $_SESSION['user_ID'] = $user['User_ID'];
                 $_SESSION['Nickname'] = $user['Nick_Name'];
