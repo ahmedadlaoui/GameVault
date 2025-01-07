@@ -1,7 +1,8 @@
 <?php
-session_start();
+    session_start();
+    require 'game.php';
+    $games = game::fetchallgames();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,46 +78,19 @@ session_start();
 
             <div class="slider-mmo scroll">
 
-                <div class="image-container scroll">
-                    <img src="images/leagueg.jpg" alt="">
+            <?php
+                foreach($games  as $game):
+                    if($game['Game_Category'] === 'MMO RPG'){
+                        echo '<div class="image-container scroll">
+                    <img src="'.$game['Poster'].'" alt="">
                     <div class="overlay">
-                        <h3>League of legends</h3>
+                        <h3>'.$game['Game_Name'].'</h3>
                     </div>
-                </div>
+                </div>';
+                    }
+                    ?>
 
-                <div class="image-container scroll">
-                    <img src="images/leagueg.jpg" alt="">
-                    <div class="overlay">
-                    </div>
-                </div>
-
-                <div class="image-container scroll">
-                    <img src="images/leagueg.jpg" alt="">
-                    <div class="overlay">
-                    </div>
-                </div>
-
-                <div class="image-container scroll">
-                    <img src="images/leagueg.jpg" alt="">
-                    <div class="overlay">
-                    </div>
-                </div>
-
-                <div class="image-container scroll">
-                    <img src="images/leagueg.jpg" alt="">
-                    <div class="overlay">
-                    </div>
-                </div>
-                <div class="image-container scroll">
-                    <img src="images/leagueg.jpg" alt="">
-                    <div class="overlay">
-                    </div>
-                </div>
-                <div class="image-container scroll">
-                    <img src="images/leagueg.jpg" alt="">
-                    <div class="overlay">
-                    </div>
-                </div>
+            <?php endforeach; ?>
             </div>
 
         </div>
@@ -148,92 +122,36 @@ session_start();
 
         <h2 class="scroll">FPS games</h2>
         <div class="slider-fps">
+        <?php
+                foreach($games  as $game):
+                    if($game['Game_Category'] === 'FPS'){
+                        echo '<div class="image-container scroll">
+                    <img src="'.$game['Poster'].'" alt="">
+                    <div class="overlay">
+                        <h3>'.$game['Game_Name'].'</h3>
+                    </div>
+                </div>';
+                    }
+                    ?>
 
-            <div class="image-container scroll">
-                <img src="images/valorant-1640045685890.jpg" alt="">
-                <div class="overlay">
-                    <h3>Valorant</h3>
-                </div>
-            </div>
-
-            <div class="image-container scroll">
-                <img src="images/valorant-1640045685890.jpg" alt="">
-                <div class="overlay">
-                </div>
-            </div>
-
-            <div class="image-container scroll">
-                <img src="images/valorant-1640045685890.jpg" alt="">
-                <div class="overlay">
-                </div>
-            </div>
-
-            <div class="image-container scroll">
-                <img src="images/valorant-1640045685890.jpg" alt="">
-                <div class="overlay">
-                </div>
-            </div>
-
-            <div class="image-container scroll">
-                <img src="images/valorant-1640045685890.jpg" alt="">
-                <div class="overlay">
-                </div>
-            </div>
-            <div class="image-container scroll">
-                <img src="images/valorant-1640045685890.jpg" alt="">
-                <div class="overlay">
-                </div>
-            </div>
-            <div class="image-container scroll">
-                <img src="images/valorant-1640045685890.jpg" alt="">
-                <div class="overlay">
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
 
         <h2 class="scroll">Battleground games</h2>
         <div class="slider-btl">
 
-            <div class="image-container scroll">
-                <img src="images/pubg-battlegrounds-17zb2.png" alt="">
-                <div class="overlay">
-                    <h3>PUBG Battleground</h3>
-                </div>
-            </div>
-
-            <div class="image-container scroll">
-                <img src="images/pubg-battlegrounds-17zb2.png" alt="">
-                <div class="overlay">
-                </div>
-            </div>
-
-            <div class="image-container scroll">
-                <img src="images/pubg-battlegrounds-17zb2.png" alt="">
-                <div class="overlay">
-                </div>
-            </div>
-
-            <div class="image-container scroll">
-                <img src="images/pubg-battlegrounds-17zb2.png" alt="">
-                <div class="overlay">
-                </div>
-            </div>
-
-            <div class="image-container scroll">
-                <img src="images/pubg-battlegrounds-17zb2.png" alt="">
-                <div class="overlay">
-                </div>
-            </div>
-            <div class="image-container scroll">
-                <img src="images/pubg-battlegrounds-17zb2.png" alt="">
-                <div class="overlay">
-                </div>
-            </div>
-            <div class="image-container scroll">
-                <img src="images/pubg-battlegrounds-17zb2.png" alt="">
-                <div class="overlay">
-                </div>
-            </div>
+        <?php
+                foreach($games  as $game):
+                    if($game['Game_Category'] === 'Battleground'){
+                        echo '<div class="image-container scroll">
+                    <img src="'.$game['Poster'].'" alt="">
+                    <div class="overlay">
+                        <h3>'.$game['Game_Name'].'</h3>
+                    </div>
+                </div>';
+                    }
+                    ?>
+            <?php endforeach; ?>
         </div>
     </main>
 

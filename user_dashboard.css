@@ -458,3 +458,12 @@ main .image-container {
     }
   }
 }
+.users-table,.users-tablee{
+  width: 50%!important;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  justify-content: space-between!important;
+}
+  .users{
+      width: 100%;
+  }

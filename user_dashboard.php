@@ -1,5 +1,7 @@
 <?php
 require_once 'dbconn.php';
+require 'game.php';
+$games = game::fetchallgames();
 session_start();
 
 class User
@@ -35,11 +37,12 @@ class User
         $stmt = $connection->prepare("UPDATE users SET Nick_Name = :currentuser,Email = :currentemail, Password = :currentpassword ");
         $stmt->bindParam(':currentuser', $_POST['name']);
         $stmt->bindParam(':currentemail', $_POST['email']);
-        $stmt->bindParam(':currentpassword', password_hash($_POST['new-password'],PASSWORD_DEFAULT));
+        $stmt->bindParam(':currentpassword', password_hash($_POST['new-password'], PASSWORD_DEFAULT));
         $stmt->execute();
     }
 
-    public static function fetchallusers(){
+    public static function fetchallusers()
+    {
         $dbconnection = dbconnection::Getinstanse();
         $connection = $dbconnection->getconnection();
 
@@ -207,48 +210,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['savechanges'])) {
         <div style="position: relative;width: 100%;display: flex;justify-content: flex-end;align-items: center;">
             <div class="slider-mmo scroll">
 
-                <div class="image-container scroll">
-                    <img src="images/leagueg.jpg" alt="">
+                <?php
+                foreach ($games  as $game):
+                    echo '<div class="image-container scroll">
+                    <img src="' . $game['Poster'] . '" alt="">
                     <div class="overlay">
-                        <h3>League of legends</h3>
+                        <h3>' . $game['Game_Name'] . '</h3>
                         <form action="" method="post">
                             <button class="deletegame">Delete<img src="images/delete_24dp_FF7070_FILL1_wght400_GRAD0_opsz24.svg" alt=""></button>
                         </form>
                     </div>
-                </div>
-                <div class="image-container scroll">
-                    <img src="images/leagueg.jpg" alt="">
-                    <div class="overlay">
-                    </div>
-                </div>
-                <div class="image-container scroll">
-                    <img src="images/leagueg.jpg" alt="">
-                    <div class="overlay">
-                    </div>
-                </div>
-                <div class="image-container scroll">
-                    <img src="images/leagueg.jpg" alt="">
-                    <div class="overlay">
-                    </div>
-                </div>
+                </div>';
+
+                ?>
+
+                <?php endforeach; ?>
             </div>
 
         </div>
     </main>
 
     <div class="users">
+    <div class="users-tablee">
+            <h4>Profile</h4>
+            <h4>User_ID</h4>
+            <h4>Nickname</h4>
 
-        <div>
-                <img src="images/person_24dp_F3F3F3_FILL1_wght400_GRAD0_opsz24.svg" alt="">
-                <h4>132</h4>
-                <h4>Ahmed Adlaoui</h4>
+            <h4>Email</h4>
+        </div>
 
-                <h4>Ahmed@gmail.com</h4>
-                <select name="new admin" id="">
-                    <option value="Admin">Admin</option>
-                    <option value="User">User</option>
-                </select>
 
+        <div class="users-table">
+            <img src="images/person_24dp_F3F3F3_FILL1_wght400_GRAD0_opsz24.svg" alt="">
+            <h4>132</h4>
+            <h4>Ahmed Adlaoui</h4>
+
+            <h4>Ahmed@gmail.com</h4>
         </div>
 
     </div>

@@ -22,7 +22,7 @@
     
         <div class="sub-header" id="header">
             <ul>
-                <a href=""><li>Home</li></a>
+                <a href="index.php"><li>Home</li></a>
                 <a href=""><li>Collection</li></a>
                 <a href=""><li>Feedbacks</li></a>
             </ul>
