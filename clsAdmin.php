@@ -14,21 +14,31 @@ class clsAdmin
       $stmt = $this->_Connection->prepare("SELECT * FROM games WHERE Game_Name = :GameName LIMIT 1");
       $stmt->execute([':GameName' => $GameName]);
 
-      // Fetch the result
-      return $stmt->fetch() !== false; // Returns true if a row exists, false otherwise
+      return $stmt->fetch() !== false;
     } catch (PDOException $e) {
-      // Log the error
+
       error_log("Error checking if game exists: " . $e->getMessage());
-      return false; // Return false on error
+      return false;
+    }
+  }
+  private function _isUserExists($NickName): bool
+  {
+    try {
+      $stmt = $this->_Connection->prepare("SELECT * FROM users where Nick_Name = :NickName LIMIT 1");
+      $stmt->execute([':NickName' => $NickName]);
+      return $stmt->fetch() !== false;
+    } catch (PDOException $err) {
+      error_log("Error checking if game exists: " . $err->getMessage());
+      return false;
     }
   }
 
   public function __construct($NickName, $Email, $Password, $ProfilePicture)
   {
-     $this->_NickName = $NickName;
-     $this->_ProfilePicture = $ProfilePicture;
-     $this->_Email = $Email;
-     $this->_Password = $Password;
+    $this->_NickName = $NickName;
+    $this->_ProfilePicture = $ProfilePicture;
+    $this->_Email = $Email;
+    $this->_Password = $Password;
     $conn = new clsDataBase("gamevault", "root", "", "localHost");
     $conn->ConnectToDB();
     $this->_Connection = $conn->Connection;
@@ -103,6 +113,18 @@ class clsAdmin
     }
   }
 
-
+  public function BanUser($NickName): bool
+  {
+    if (!$this->_isUserExists($NickName))
+      return false;
+    try {
+      $stmt = $this->_Connection->prepare("UPDATE users SET Banned=1 WHERE Nick_Name = :NickName");
+      $stmt->execute([':NickName' => $NickName]);
+      return true;
+    } catch (PDOException $err) {
+      error_log("oops! couldn't ban user : " . $err->getMessage());
+      return false;
+    }
+  }
 
 }
