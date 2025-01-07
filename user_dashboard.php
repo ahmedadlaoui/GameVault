@@ -38,8 +38,19 @@ class User
         $stmt->bindParam(':currentpassword', password_hash($_POST['new-password'],PASSWORD_DEFAULT));
         $stmt->execute();
     }
+
+    public static function fetchallusers(){
+        $dbconnection = dbconnection::Getinstanse();
+        $connection = $dbconnection->getconnection();
+
+        $stmt = $connection->prepare("SELECT * FROM users");
+        $stmt->execute();
+        return  $stmt->FetchAll(PDO::FETCH_ASSOC);
+    }
 }
+
 $user_infos = User::fetchuser_infos();
+$users = User::fetchallusers();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['savechanges'])) {
     user::edit_uuserinfos();
@@ -82,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['savechanges'])) {
 
 
     <?php
-    if (!empty($_SESSION['Nickname'])) {
+    if ($_SESSION['Nickname']) {
         echo '<div class="sub-header" id="header">
     <ul>
         <a href="index.php">
@@ -224,6 +235,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['savechanges'])) {
 
         </div>
     </main>
+
+    <div class="users">
+
+        <div>
+                <img src="images/person_24dp_F3F3F3_FILL1_wght400_GRAD0_opsz24.svg" alt="">
+                <h4>132</h4>
+                <h4>Ahmed Adlaoui</h4>
+
+                <h4>Ahmed@gmail.com</h4>
+                <select name="new admin" id="">
+                    <option value="Admin">Admin</option>
+                    <option value="User">User</option>
+                </select>
+
+        </div>
+
+    </div>
 
     <script src="script.js"></script>
 

@@ -442,3 +442,19 @@ main .image-container {
     height: 20px;
 
 }
+.users{
+  width: 100%;
+  >div{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    >img{
+      background-color: gray;
+      padding: 6px;
+      border-radius: 50%;
+      
+    }
+  }
+}
