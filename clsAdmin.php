@@ -33,7 +33,7 @@ class clsAdmin
     }
   }
 
-  public function __construct($NickName, $Email, $Password, $ProfilePicture)
+  public function __construct($NickName="", $Email="", $Password="", $ProfilePicture="")
   {
     $this->_NickName = $NickName;
     $this->_ProfilePicture = $ProfilePicture;
@@ -125,6 +125,17 @@ class clsAdmin
       error_log("oops! couldn't ban user : " . $err->getMessage());
       return false;
     }
+  }
+  public function GetAvailableGames(): array
+  {
+    try{
+      $stmt =$this->_Connection->query("SELECT * FROM games");
+      return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }catch (PDOException $e) {
+      error_log("oops! something went bad please contact us to solve this issue: " . $e->getMessage());
+      return [];
+    }
+  
   }
 
 }
