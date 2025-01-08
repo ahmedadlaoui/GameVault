@@ -17,7 +17,7 @@ class dbconnection
             $this->connection = new PDO("mysql:host=$servername;dbname=$dbname;port=$port", $username, $password);
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
-            echo 'error connecting to the data base ' . $e->getMessage();
+            echo 'error connecting to the database ' . $e->getMessage();
         }
     }
 
@@ -37,3 +37,4 @@ class dbconnection
     }
 
 }
+?>

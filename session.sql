@@ -20,3 +20,6 @@ DESCRIBE games;
   INSERT INTO games(Game_Name,Poster,Game_Category,Relese_Date) VALUES ('PUBG Battlegrounds','https://cdn1.epicgames.com/spt-assets/53ec4985296b4facbe3a8d8d019afba9/pubg-battlegrounds-17zb2.png','Battleground','2017-03-23')
  -- @block
  INSERT INTO games(Game_Name,Poster,Game_Category,Relese_Date) VALUES('Fortnite','https://m.media-amazon.com/images/M/MV5BMTZlMmIxM2EtN2Y4Zi00M2ZhLTk3NzgtNjJmZTU0MTQ3YjcwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg','Battleground','2018-07-21');
+
+ -- @block
+ SELECT * FROM library_join;

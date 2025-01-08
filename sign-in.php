@@ -49,10 +49,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit-login'])){
     $signininstance = new sign_in(null,null);
     $signininstance->signin();
 }
-if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['log-out'])){
-    sign_in::signout();
-}
 
+if(!empty($_SESSION['Nickname']) && isset($_POST['login/out'])){
+  sign_in::signout();
+}
 
 
 ?>

@@ -458,12 +458,11 @@ main .image-container {
     }
   }
 }
-.users-table,.users-tablee{
-  width: 50%!important;
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  justify-content: space-between!important;
+table thead {
+  background-color: rgb(35, 35, 35)!important;
 }
-  .users{
-      width: 100%;
-  }
+table tbody tr {
+  background-color: rgba(35, 35, 35, 0.17)!important; 
+}
+
+

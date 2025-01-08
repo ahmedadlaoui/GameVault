@@ -36,6 +36,16 @@ class signup
     $stmt->bindParam(':email', $_POST['email']);
     $stmt->bindParam(':password', $hashedpassword);
     $stmt->execute();
+
+    $stmt = $connection->prepare("SELECT * FROM users WHERE Nick_Name = :name ");
+    $stmt->bindParam(':name', $_POST['nickname']);
+    $stmt->execute();
+    $newuser = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+    $stmt = $connection->prepare("INSERT INTO  Libraries (User_ID) VALUES (:id)");
+    $stmt->bindParam(':id',$newuser['User_ID']);
+    $stmt->execute();
   }
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit-signup'])) {
