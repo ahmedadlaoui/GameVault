@@ -1,6 +1,7 @@
 <?php
 require_once 'dbconn.php';
 session_start();
+ob_start();
 
 class User
 {
@@ -207,35 +208,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['savechanges'])) {
 
     <div style="position: relative;width: 100%;display: flex;justify-content: flex-end;align-items: center;">
       <div class="slider-mmo scroll">
-
-        <div class="image-container scroll">
-          <img src="images/leagueg.jpg" alt="">
-          <div class="overlay">
-            <h3>League of legends</h3>
-            <form action="" method="post">
-              <button class="deletegame">Delete<img src="images/delete_24dp_FF7070_FILL1_wght400_GRAD0_opsz24.svg" alt=""></button>
-            </form>
-          </div>
-        </div>
         <?php
         require_once "clsAdmin.php";
-        // include "clsAdmin.php";
         $admin1 = new clsAdmin();
         $AllGames = $admin1->GetAvailableGames();
         foreach ($AllGames as $Game) {
           echo '<div class="image-container scroll">
                     <img src="' . $Game->Poster . '">
                     <div class="overlay">
-                      <h3>' .$Game->Game_Name. '</h3>
+                      <h3>' . $Game->Game_Name . '</h3>
                       <form action="" method="post">
+                      <input type="hidden" name="game_id" value="' . $Game->Game_ID . '">
                       <button class="deletegame">Delete<img src="images/delete_24dp_FF7070_FILL1_wght400_GRAD0_opsz24.svg" alt=""></button>
                       </form>
                     </div>
                 </div>';
         }
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['game_id'])) {
+          $gameId = $_POST['game_id'];
+          $admin1->DeleteGame($gameId);
+          header("Location: " . $_SERVER['PHP_SELF']);
+        }
         ?>
-
-
       </div>
 
     </div>
@@ -263,3 +257,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['savechanges'])) {
 </body>
 
 </html>
+
+<?php
+ob_end_flush(); 
+?>

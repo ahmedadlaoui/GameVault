@@ -8,11 +8,11 @@ class clsAdmin
   private $_ProfilePicture;
   private $_Connection;
 
-  private function _isGameAlreadyExist($GameName): bool
+  private function _isGameAlreadyExist($GameID): bool
   {
     try {
-      $stmt = $this->_Connection->prepare("SELECT * FROM games WHERE Game_Name = :GameName LIMIT 1");
-      $stmt->execute([':GameName' => $GameName]);
+      $stmt = $this->_Connection->prepare("SELECT * FROM games WHERE Game_ID = :GameID LIMIT 1");
+      $stmt->execute([':GameID' => $GameID]);
 
       return $stmt->fetch() !== false;
     } catch (PDOException $e) {
@@ -69,15 +69,15 @@ class clsAdmin
     }
   }
 
-  public function deleteGame($GameName): bool
+  public function deleteGame($GameID): bool
   {
-    if (!$this->_isGameAlreadyExist($GameName)) {
+    if (!$this->_isGameAlreadyExist($GameID)) {
       echo "game doesn't exist!";
       return false;
     }
     try {
-      $stmt = $this->_Connection->prepare("DELETE FROM games WHERE Game_Name=:GameName;");
-      $stmt->execute([':GameName' => $GameName]);
+      $stmt = $this->_Connection->prepare("DELETE FROM games WHERE Game_ID=:GameID;");
+      $stmt->execute([':GameID' => $GameID]);
       return true;
     } catch (PDOException $e) {
       error_log("oops! couldn't delete the game: " . $e->getMessage());
