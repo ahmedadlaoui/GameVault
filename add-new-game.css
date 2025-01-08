@@ -1,0 +1,90 @@
+*{
+  margin:0px;
+  padding:0px;
+  
+}
+body{
+  height: 100vh;
+  width: 100%;
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(images/logogm-removebg-preview.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+form{
+  height: 80%;
+  width: 80%;
+
+  backdrop-filter: blur(30px); /* ! */
+  border:solid rgba(0, 255, 8, 0.847) 2px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  >h2{
+    text-transform: capitalize;
+  }
+  >div{
+    width: 90%;
+    >input{
+      padding: 15px;
+      width: 90%;
+      outline: none;
+      border:solid rgba(0, 255, 8, 0.847) 1px;
+      border-radius: 10px;
+      background-color: rgba(82, 77, 77, 0.653);
+      color: wheat;
+      margin-top: 10px;
+
+    }
+    >label span{
+      color: rgb(29, 28, 26);
+      font-weight: bolder;
+      
+    }    
+    
+  }
+  >button {
+    
+    width: 180px;
+    bottom: 18px;
+    padding: 12px;
+    background-color: transparent;
+    color: rgb(23, 50, 66);
+    font-size: 22px;
+    font-weight: 800;
+    right: 0;
+    border: none;
+    border-bottom: 2px solid rgba(0, 255, 8, 0.847);
+    transition: 0.3s all ease-in-out;
+    cursor: pointer;
+  }
+  > button::before {
+    content: "";
+    height: 0%;
+    width: 100%;
+    left: 0;
+    background-color: rgba(46, 183, 210, 0.093);
+    transition: 0.3s all ease-in-out;
+    position: absolute;
+    bottom: 0;
+    border: none;
+  }
+  >button:hover {
+    color: white;
+    border-radius: 200px;
+  }
+  >button:hover::before {
+    border-radius: 200px;
+    height: 100%;
+    color: white;
+  }
+  
+
+
+}
