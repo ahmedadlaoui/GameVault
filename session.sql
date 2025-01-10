@@ -1,5 +1,5 @@
 
-DESCRIBE games;
+DESCRIBE chat_messages;
 
  -- @block
  SELECT * FROM games;
@@ -21,5 +21,3 @@ DESCRIBE games;
  -- @block
  INSERT INTO games(Game_Name,Poster,Game_Category,Relese_Date) VALUES('Fortnite','https://m.media-amazon.com/images/M/MV5BMTZlMmIxM2EtN2Y4Zi00M2ZhLTk3NzgtNjJmZTU0MTQ3YjcwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg','Battleground','2018-07-21');
 
- -- @block
- SELECT * FROM library_join;

@@ -46,74 +46,68 @@ document.addEventListener("DOMContentLoaded",() => {
     });
 });
 
-// const slider = document.querySelector('.z3antot .sliderr');
+
+// const slider = document.querySelector('.z3antot div');
 // const forwardButton = document.getElementById('forwardd');
 // const backwardButton = document.getElementById('backwardd');
-// const images = Array.from(slider.children);
 
 // function moveForward() {
-//     const firstImage = images.shift();
-//     images.push(firstImage);
-//     updateImageOrder();
+//     const images = Array.from(slider.children);
+
+//     images.forEach((img, index) => {
+//         img.style.transition = 'transform 0.3s ease-in-out';
+//         img.style.transform = `translateX(-290px)`;
+//     });
+
+//     setTimeout(() => {
+//         const firstImage = images[0];
+//         slider.appendChild(firstImage);
+
+//         images.forEach((img) => {
+//             img.style.transition = 'none';
+//             img.style.transform = 'translateX(0)';
+//         });
+//     }, 300);
 // }
 
 // function moveBackward() {
-//     const lastImage = images.pop();
-//     images.unshift(lastImage);
-//     updateImageOrder(); 
-// }
-// function updateImageOrder() {
-//     slider.innerHTML = '';
-//     images.forEach((img) => slider.appendChild(img))
+//     const images = Array.from(slider.children);
+//     const lastImage = images[images.length - 1];
+//     slider.prepend(lastImage);
+
+//     images.forEach((img) => {
+//         img.style.transition = 'none';
+//         img.style.transform = `translateX(-290px)`;
+//     });
+
+//     setTimeout(() => {
+//         images.forEach((img) => {
+//             img.style.transition = 'transform 0.3s ease-in-out';
+//             img.style.transform = 'translateX(0)';
+//         });
+//     }, 0);
 // }
 
 // forwardButton.addEventListener('click', moveForward);
 // backwardButton.addEventListener('click', moveBackward);
 
-const slider = document.querySelector('.z3antot div');
-const forwardButton = document.getElementById('forwardd');
-const backwardButton = document.getElementById('backwardd');
 
-function moveForward() {
-    const images = Array.from(slider.children);
 
-    images.forEach((img, index) => {
-        img.style.transition = 'transform 0.3s ease-in-out';
-        img.style.transform = `translateX(-290px)`;
-    });
+document.addEventListener("DOMContentLoaded",() => {
+    const bannButtons = document.querySelectorAll('.mr-4');
 
-    setTimeout(() => {
-        const firstImage = images[0];
-        slider.appendChild(firstImage);
+    bannButtons.forEach(button => {
+        button.addEventListener('click', function() {
 
-        images.forEach((img) => {
-            img.style.transition = 'none';
-            img.style.transform = 'translateX(0)';
+            const user_ID = this.getAttribute('bann_player_ID');
+            const url = new URL(window.location.href);
+            url.searchParams.set('User_ID', user_ID);
+            console.log(url);
+            
+
+            window.location.href = url.toString();
         });
-    }, 300);
-}
-
-function moveBackward() {
-    const images = Array.from(slider.children);
-    const lastImage = images[images.length - 1];
-    slider.prepend(lastImage);
-
-    images.forEach((img) => {
-        img.style.transition = 'none';
-        img.style.transform = `translateX(-290px)`;
     });
-
-    setTimeout(() => {
-        images.forEach((img) => {
-            img.style.transition = 'transform 0.3s ease-in-out';
-            img.style.transform = 'translateX(0)';
-        });
-    }, 0);
-}
-
-forwardButton.addEventListener('click', moveForward);
-backwardButton.addEventListener('click', moveBackward);
-
-
+});
 
 

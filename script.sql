@@ -15,6 +15,19 @@ create table users(
     
 );
 -- @block
+ALTER TABLE chat_messages
+ADD COLUMN message_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+-- @block
+CREATE TABLE Chat_Messages (
+    Message_ID INT PRIMARY KEY AUTO_INCREMENT,
+    User_ID INT NOT NULL,
+    Game_ID INT NOT NULL,
+    Message_Content VARCHAR(200) NOT NULL,
+    FOREIGN KEY (User_ID) REFERENCES users (User_ID),
+    FOREIGN KEY (Game_ID) REFERENCES Games (Game_ID)
+);
+
+-- @block
 
 create table Games(
 	Game_ID int primary key auto_increment,
@@ -30,6 +43,8 @@ create table Screen_Shots(
     Screen_Url varchar (300) not null ,
     constraint FK_Game_Screens foreign key (Game_ID) references Games(Game_ID)
 );
+-- @block 
+DESCRIBE  Screen_Shots;
 
 -- @block
 
@@ -73,6 +88,7 @@ create table Feedbacks(
     feedback varchar(200) not null,
     constraint FK_Game_Feedback foreign key (Game_ID) references Games (Game_ID)
 );
+ 
 
 -- @block
 create table Chat_Room_Join(
@@ -82,7 +98,6 @@ create table Chat_Room_Join(
     Message_Content varchar (200) not null,
 	foreign key (User_ID) references users (User_ID),
     foreign key (Chat_Room_ID) references Chat_Rooms (Chat_Room_ID)
-    
 );
 
 -- @block

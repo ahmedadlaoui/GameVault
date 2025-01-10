@@ -31,8 +31,9 @@ class sign_in{
                 $_SESSION['Role'] = $user['Role'];
                 $_SESSION['status'] = $user['Banned'];
                 $_SESSION['Profile_Pic'] = $user['Profile_Pic'];
-
+                
                 header("location: index.php");
+
             }
         }
 

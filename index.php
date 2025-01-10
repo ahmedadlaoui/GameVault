@@ -63,28 +63,31 @@ if (!empty($_SESSION['user_ID']) && isset($_GET['Game_ID'])) {
         <ul>
             <a href=""><img src="images/logogm-removebg-preview.png" alt="logo" id="logo"></a>
             <a href="">
-                <li>PREMIUM</li>
+                <li>ABOUT US</li>
             </a>
             <a href="" style="display: flex;">
-                <li>DOWLOAD</li> <img src="images/download_24dp_F3F3F3_FILL0_wght500_GRAD0_opsz24.svg" alt="">
+                <li>CONTACT</li>
             </a>
-            <a href="" style="display: flex;">
+            <?php
+                if( isset($_SESSION['Role']) &&$_SESSION['Role'] === 'Admin'){
+                    echo '            <a href="dashboard.php" style="display: flex;">
                 <li>Dashboard</li><img src="images/headset_mic_24dp_F3F3F3_FILL0_wght500_GRAD0_opsz24.svg" alt="">
-            </a>
+            </a>';
+                }
+            ?>
         </ul>
-        <a style="text-decoration: none;" href="sign-in.php"><button><img src="images/person_24dp_F3F3F3_FILL1_wght400_GRAD0_opsz24.svg" alt=""><?php ?>Log In</button></a>
+        <a style="text-decoration: none;" href="sign-in.php"><button name="log" class="log"><img class="profile" src="<?php if(isset($_SESSION['Nickname'])){echo  $_SESSION['Profile_Pic'];} else{echo 'images/person_24dp_F3F3F3_FILL1_wght400_GRAD0_opsz24.svg';} ?>" alt=""><?php if(isset($_SESSION['Nickname'])){ echo'Log Out';}else{echo'Log In';} ?></button></a>
     </header>
-
 
     <?php
     if (!empty($_SESSION['Nickname'])) {
         echo '<div class="sub-header" id="header">
         <ul>
-            <a href="">
+            <a href="index.php">
                 <li>Home</li>
             </a>
             <a href="">
-                <li>Collection</li>
+                <li>Historic</li>
             </a>
             <a href="">
                 <li>Feedbacks</li>
