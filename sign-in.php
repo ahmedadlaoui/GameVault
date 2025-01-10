@@ -31,16 +31,12 @@ class sign_in{
                 $_SESSION['Role'] = $user['Role'];
                 $_SESSION['status'] = $user['Banned'];
                 $_SESSION['Profile_Pic'] = $user['Profile_Pic'];
-
+                
                 header("location: index.php");
+
             }
         }
 
-    }
-
-    public static function signout(){
-        session_destroy();
-        session_unset();
     }
 
 }
@@ -48,9 +44,6 @@ class sign_in{
 if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit-login'])){
     $signininstance = new sign_in(null,null);
     $signininstance->signin();
-}
-if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['log-out'])){
-    sign_in::signout();
 }
 
 

@@ -35,16 +35,28 @@
   }
   
   
-  .content{
+  #edit-form{
     width: 100%;
+    display: block;
+    display: none;
+
   }
   .title-info{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding :10px;
-    margin: 10px 0px;
     color: white;
+    position: relative;
+    >h2{
+      font-size: 28px;
+      margin-left: 4%;
+      font-weight: 700;
+    }
+  }
+  .alls{
+    font-size: 28px;
+    margin-left: 4%;
+    font-weight: 700;
   }
   
   .data-info{
@@ -53,11 +65,11 @@
     padding: 12px;
     flex-wrap: wrap;
     gap: 10px;
-
-  
+    width: 93.5%;
+    margin: auto;
   }
   .data-info .box{
-    background-color:rgba(35, 35, 35, 0.225);
+    background-color:rgb(28, 28, 28);
     height: 150px;
     width: 150px;
     border:1px solid white;
@@ -336,15 +348,17 @@
 
 .changeifos{
     margin: auto;
-    width: 80%;
+    width: 92%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items:center;
-    >img{
+    >div{
+      background-repeat: no-repeat;
         border-radius: 50%;
         width: 320px;
         height: 320px;
         border: 1px solid white;
+        background-position: center;
     }
 }
 
@@ -458,3 +472,113 @@ main .image-container {
     }
   }
 }
+table thead {
+  background-color: rgb(35, 35, 35)!important;
+}
+table tbody tr {
+  background-color: rgba(35, 35, 35, 0.17)!important; 
+}
+
+
+
+.add-game{
+  width: 50%;
+  margin: auto;
+  margin-bottom: 60px;
+  margin-top: 60px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  >h2{
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+}
+.inputt{
+  background-color: rgba(0, 0, 0, 0.051);
+  padding: 10px 20px;
+  border-radius: 6px;
+  margin: 10px 0px;
+  border:none;
+  border: solid 1px #FFF;
+  outline: none!important;
+  width: 330px;
+}
+.inputt::placeholder{
+  color:rgba(255,255,255,0.6);
+}
+
+.screen-shots{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  >h2{
+    font-size: 28px;
+    font-weight: 700;
+  }
+}
+.add{
+  padding: 8px;
+  background-color: rgba(255, 166, 0, 0.845);
+  color: black;
+  border-radius: 4px;
+  width: 150px;
+  margin: auto;
+  }
+
+  .selectt {
+    background-color: rgba(0, 0, 0, 0.051);
+    padding: 10px 20px;
+    border-radius: 6px;
+    margin: 10px 0px;
+    border: solid 1px #FFF;
+    outline: none!important;
+    width: 330px;
+    color: #FFF;
+    font-family: inherit;
+    font-size: inherit;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+  .selectt::-ms-expand {
+    display: none;
+  }
+  
+  .selectt option {
+    background-color: #131313;
+    color: #FFF;
+  }
+  
+  .selectt::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .savebtn{
+    padding: 8px;
+    background-color: rgba(255, 166, 0, 0.845);
+    color: black;
+    border-radius: 4px;
+    margin: auto;
+    width: 140px;
+  }
+  #vb{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .profile{
+    width: 26px;
+    height: 26px;
+}
+
+
+
+
+
+  
