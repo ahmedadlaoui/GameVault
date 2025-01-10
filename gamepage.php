@@ -1,5 +1,8 @@
     <?php
     session_start();
+    if(!isset($_SESSION['user_ID'])){
+        exit;
+    }
 
     require 'game.php';
     require 'User.php';
@@ -91,6 +94,8 @@
             </div>
         </div>
 
+        
+
 
         <div class="main-sec">
 
@@ -101,6 +106,7 @@
                 <h2>Category : <?php echo $current_game['Game_Category'] ?></h2>
                 <h2>Release date : <?php echo $current_game['Relese_Date'] ?></h2>
                 <button id="watchgameplay">Gameplay <img src="images/smart_display_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg" alt=""></button>
+           
             </div>
             <div class="chat">
 <div class="messages">
@@ -161,6 +167,7 @@
             </div>
 
         </div>
+
 
 
         <script src="gamepagescript.js"></script>

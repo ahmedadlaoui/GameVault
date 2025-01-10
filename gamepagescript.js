@@ -6,7 +6,7 @@ function moveForward() {
     const images = Array.from(slider.children);
 
     images.forEach((img) => {
-        img.style.transition = 'transform 0.3s ease-in-out';
+        img.style.transition = 'transform 0.4s ease-in-out';
         img.style.transform = `translateX(-300px)`;
     });
 
@@ -18,7 +18,7 @@ function moveForward() {
             img.style.transition = 'none';
             img.style.transform = 'translateX(0)';
         });
-    }, 300);
+    }, 400);
 }
 
 function moveBackward() {
@@ -33,7 +33,7 @@ function moveBackward() {
 
     setTimeout(() => {
         images.forEach((img) => {
-            img.style.transition = 'transform 0.3s ease-in-out';
+            img.style.transition = 'transform 0.4s ease-in-out';
             img.style.transform = 'translateX(0)';
         });
     }, 0);

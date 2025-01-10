@@ -46,6 +46,10 @@ class signup
     $stmt = $connection->prepare("INSERT INTO  Libraries (User_ID) VALUES (:id)");
     $stmt->bindParam(':id',$newuser['User_ID']);
     $stmt->execute();
+
+    $stmt = $connection->prepare("INSERT INTO  Wish_Lists (User_ID) VALUES (:id)");
+    $stmt->bindParam(':id',$newuser['User_ID']);
+    $stmt->execute();
   }
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit-signup'])) {

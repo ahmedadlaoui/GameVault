@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start();
 
 require 'User.php';
 require 'game.php';
@@ -210,7 +211,7 @@ if (!empty($_SESSION['Nickname'])) {
   <main class="title-info">
     <h2>My library</h2>
 
-    <div style="position: relative;width: 100%;display: flex;justify-content: flex-end;align-items: center;">
+    <div style="position: relative;width: 100%;display: flex;justify-content: flex-end;align-items: center;flex-direction:column;">
       <div class="slider-mmo scroll">
 
         <?php
@@ -227,9 +228,40 @@ if (!empty($_SESSION['Nickname'])) {
         ?>
 
       </div>
+      <div class="slider-mmo scroll">
+    <?php
+    require_once "wishlist.php";
+    $List = new clsWishList();
+    $ListGames = $List->GetAllAvailableWishGames(2, 17);
+    foreach ($ListGames as $Game) {
+      echo '
+        <div class="image-container scroll">
+      <img src="' . $Game->Poster . '">
+      <div class="overlay">
+        <h3>' . $Game->Game_Name . '</h3>
+        <form action="" method="post">
+                  <input type="hidden" name="game_id" value="' . $Game->Game_ID . '">
+                  <button class="deletegame">Delete<img src="images/delete_24dp_FF7070_FILL1_wght400_GRAD0_opsz24.svg" alt=""></button>
+                  </form>
+          </div>
+        </div>
+        ';
+    }
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['game_id'])) {
+      $gameId = $_POST['game_id'];
+      $List->RemoveGameFromWishList(2,$gameId);
+       header("Location: " . $_SERVER['PHP_SELF']);
+    }
+    ?>
 
     </div>
+    </div>
+
+  
   </main>
+
+
+
 
   <script src="script.js"></script>
   <script>
@@ -247,3 +279,4 @@ if (!empty($_SESSION['Nickname'])) {
 </body>
 
 </html>
+<?php ob_end_flush();?>

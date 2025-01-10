@@ -76,6 +76,7 @@ if (!empty($_SESSION['user_ID']) && isset($_GET['Game_ID'])) {
                 }
             ?>
         </ul>
+        
         <a style="text-decoration: none;" href="sign-in.php"><button name="log" class="log"><img class="profile" src="<?php if(isset($_SESSION['Nickname'])){echo  $_SESSION['Profile_Pic'];} else{echo 'images/person_24dp_F3F3F3_FILL1_wght400_GRAD0_opsz24.svg';} ?>" alt=""><?php if(isset($_SESSION['Nickname'])){ echo'Log Out';}else{echo'Log In';} ?></button></a>
     </header>
 
